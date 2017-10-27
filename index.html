@@ -1,19 +1,56 @@
-<html>
-  <head>
-      <title> Sea Hoon Kim </title>
-  <style>
-    body {
-      background-color: black;
-      text-align: center;
-     padding: 200px;
-    }
-   h1 {
-      font-size: 60px;
-      color: #eeee33;
-   }
-</style>    
-  </head>
-  <body>
-    <h1> Sea Hoon Kim </h1>
-  </body>
-</html>   
+
+<meta charset="utf-8">
+<head>
+</head>
+<body>
+  <div id="viz"></div>
+</body>
+
+<script src="http://d3plus.org/js/d3.js"></script>
+<script src="http://d3plus.org/js/d3plus.js"></script>
+<script>
+
+var data = [
+  {"leaders": "Donald Trump", "name": "Social Media", "value": 42},
+  {"leaders": "Donald Trump", "name": "Terror", "value": 7},
+  {"leaders": "Theresa May", "name": "Social Media", "value": 22},
+  {"leaders": "Theresa May", "name": "Terror", "value": 9},
+  {"leaders": "Angela Merkel", "name": "Social Media", "value": 19},
+  {"leaders": "Angela Merkel", "name": "Terror", "value": 6},
+  {"leaders": "Emmanuel Macron", "name": "Social Media", "value": 25},
+  {"leaders": "Emmanuel Macron", "name": "Terror", "value": 12},
+  {"leaders": "Xi Jinping", "name": "Social Media", "value": 27},
+  {"leaders": "Xi Jinping", "name": "Terror", "value": 5},
+  {"leaders": "Shinzo Abe", "name": "Social Media", "value": 25},
+  {"leaders": "Shinzo Abe", "name": "Terror", "value": 6},
+  {"leaders": "Vladimir Putin", "name": "Social Media", "value": 18},
+  {"leaders": "Vladimir Putin", "name": "Terror", "value": 8},
+  {"leaders": "Recep Tayyip Erdogan", "name": "Social Media", "value": 30},
+  {"leaders": "Recep Tayyip Erdogan", "name": "Terror", "value": 20},
+  {"leaders": "Narendra Modi", "name": "Social Media", "value": 28},
+  {"leaders": "Narendra Modi", "name": "Terror", "value": 14},
+  {"leaders": "Benjamin Netanyahu", "name": "Social Media", "value": 28},
+  {"leaders": "Benjamin Netanyahu", "name": "Terror", "value": 14},
+  {"leaders": "Justin Trudeau", "name": "Social Media", "value": 49},
+  {"leaders": "Justin Trudeau", "name": "Terror", "value": 13},
+  {"leaders": "Hassan Rouhani", "name": "Social Media", "value": 34},
+  {"leaders": "Hassan Rouhani", "name": "Terror", "value": 9},
+
+var attributes = [
+  {"name": "Social Media", "color": "#FF7E23"},
+  {"name": "Terror", "color": "#4F392A"},
+]
+
+var visualization = d3plus.viz()
+  .container("#viz")
+  .data(data)
+  .type("bar")
+  .id("name")
+  .x("leaders")
+  .y({"stacked": true, "value" : "value"})
+  .attrs(attributes)
+  .color("color")
+  .legend({"font":{"size":8}})
+  .draw()
+
+</script>
