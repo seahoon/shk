@@ -54,3 +54,47 @@ var visualization = d3plus.viz()
   .draw()
 
 </script>
+
+
+<meta charset="utf-8">
+<!-- <html> -->
+<head>
+</head>
+<body>
+  <div id="viz"></div>
+</body>
+
+<!-- <script src="../d3plus.full.min.js"></script> -->
+<script src="HTTPS://d3plus.org/js/d3.js"></script>
+<script src="HTTPS://d3plus.org/js/d3plus.js"></script>
+<script>
+
+  var sample_data = [
+    {"year": 2006, "name":"terrorism x social media", "value": 0},
+    {"year": 2007, "name":"terrorism x social media", "value": 1},
+    {"year": 2008, "name":"terrorism x social media", "value": 45},
+    {"year": 2009, "name":"terrorism x social media", "value": 39},
+    {"year": 2010, "name":"terrorism x social media", "value": 68},
+    {"year": 2011, "name":"terrorism x social media", "value": 161},
+    {"year": 2012, "name":"terrorism x social media", "value": 192},
+    {"year": 2013, "name":"terrorism x social media", "value": 80},
+    {"year": 2014, "name":"terrorism x social media", "value": 479},
+    {"year": 2015, "name":"terrorism x social media", "value": 676},
+    {"year": 2016, "name":"terrorism x social media", "value": 1086},
+    {"year": 2017, "name":"terrorism x social media", "value": 1090},
+  ]
+
+  var visualization = d3plus.viz()
+    .container("#viz")
+    .data(sample_data)
+    .type("line")
+    .id("name")
+    .text("name")
+    .y("value")
+    .x("year")
+    .shape({
+      "interpolate": "basis"  // takes accepted values to change interpolation type
+    })
+    .draw()
+</script>
+
