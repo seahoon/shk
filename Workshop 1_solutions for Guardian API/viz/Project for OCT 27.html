@@ -1,0 +1,117 @@
+<!-- <!doctype html>
+<meta charset="utf-8">
+
+<script src="../d3plus.v2.js"></script>
+
+<body>
+
+</body>
+
+<script>
+
+  const data = [
+    {parent: "Group 1", id: "alpha", value: 29},
+    {parent: "Group 1", id: "beta",  value: 10},
+    {parent: "Group 1", id: "gamma", value: 2},
+    {parent: "Group 2", id: "delta", value: 29},
+    {parent: "Group 2", id: "eta",   value: 25}
+  ];
+
+  let pie = new d3plus.Pie()
+    .groupBy("id")
+    .select("body")
+    .data(data);
+
+  // set the inner radius
+  pie.innerRadius(200);
+
+  // set padding on wedges
+  pie.padPixel(6);
+
+  // we can also nest the same way as tmaps
+  pie.groupBy(["parent", "id"])
+
+  pie.render();
+
+
+</script> -->
+
+<meta charset="utf-8">
+<!-- <html> -->
+<head>
+</head>
+<body>
+  <div id="viz"></div>
+</body>
+
+<!-- <script src="../d3plus.full.min.js"></script> -->
+<script src="http://d3plus.org/js/d3.js"></script>
+<script src="http://d3plus.org/js/d3plus.js"></script>
+<script>
+
+var data = [
+  {"leaders": "Donald Trump", "name": "Social Media", "value": 42},
+  {"leaders": "Donald Trump", "name": "Terror", "value": 7},
+  {"leaders": "Theresa May", "name": "Social Media", "value": 22},
+  {"leaders": "Theresa May", "name": "Terror", "value": 9},
+  {"leaders": "Angela Merkel", "name": "Social Media", "value": 19},
+  {"leaders": "Angela Merkel", "name": "Terror", "value": 6},
+  {"leaders": "Emmanuel Macron", "name": "Social Media", "value": 25},
+  {"leaders": "Emmanuel Macron", "name": "Terror", "value": 12},
+  {"leaders": "Xi Jinping", "name": "Social Media", "value": 27},
+  {"leaders": "Xi Jinping", "name": "Terror", "value": 5},
+  {"leaders": "Shinzo Abe", "name": "Social Media", "value": 25},
+  {"leaders": "Shinzo Abe", "name": "Terror", "value": 6},
+  {"leaders": "Vladimir Putin", "name": "Social Media", "value": 18},
+  {"leaders": "Vladimir Putin", "name": "Terror", "value": 8},
+  {"leaders": "Recep Tayyip Erdogan", "name": "Social Media", "value": 30},
+  {"leaders": "Recep Tayyip Erdogan", "name": "Terror", "value": 20},
+  {"leaders": "Narendra Modi", "name": "Social Media", "value": 28},
+  {"leaders": "Narendra Modi", "name": "Terror", "value": 14},
+  {"leaders": "Benjamin Netanyahu", "name": "Social Media", "value": 28},
+  {"leaders": "Benjamin Netanyahu", "name": "Terror", "value": 14},
+  {"leaders": "Justin Trudeau", "name": "Social Media", "value": 49},
+  {"leaders": "Justin Trudeau", "name": "Terror", "value": 13},
+  {"leaders": "Hassan Rouhani", "name": "Social Media", "value": 34},
+  {"leaders": "Hassan Rouhani", "name": "Terror", "value": 9},
+
+
+
+  //
+  // {id: "alpha", x: 4, y:  7},
+  // {id: "alpha", x: 5, y: 25},
+  // {id: "alpha", x: 6, y: 13},
+  // {id: "beta",  x: 4, y: 42},
+  // {id: "beta",  x: 5, y:  8},
+  // {id: "beta",  x: 6, y: 13}
+
+];
+
+// new d3plus.BarChart()
+//   .data(data)
+//   .stacked(true)
+//   .render();
+
+var attributes = [
+  {"name": "Social Media", "color": "#FF7E23"},
+  {"name": "Terror", "color": "#4F392A"},
+]
+
+var visualization = d3plus.viz()
+  .container("#viz")
+  .data(data)
+  .type("bar")
+  .id("name")
+  .x("leaders")
+  .y({"stacked": true, "value" : "value"})
+  .attrs(attributes)
+  .color("color")
+  .legend({"font":{"size":8}})
+  .descs({
+      "leaders": "How many apples",  // key referring to data will use string as description
+      "Terror": "What year it was"   // multiple descriptions possible
+    })
+  .draw()
+
+</script>
+<!-- </html> -->
